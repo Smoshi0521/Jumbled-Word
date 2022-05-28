@@ -1,0 +1,378 @@
+.background_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 44.6rem;
+  background-color: bisque;
+}
+
+.background_container .startbox_container {
+  height: 300px;
+  width: 600px;
+  background-color: #3e8ed0;
+  border-radius: 50px;
+  z-index: 999;
+  text-decoration: none;
+  display: block;
+}
+
+.background_container .startbox_container .title_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 120px;
+  margin-top: 20px;
+}
+
+.background_container .startbox_container .title_container #title {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.background_container .startbox_container .start_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.background_container .startbox_container .start_container #start_jumble {
+  height: 100px;
+  width: 50%;
+  border-radius: 50px;
+  font-size: 50px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.background_container .startbox_container .start_container #start_jumble:hover {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #00d1b2;
+}
+
+.background_container .startbox_container .start_container #start_jumble:active {
+  background: yellow;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.background_container .startbox_container .start_container #start_jumble:active:after {
+  opacity: 1;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.game_section {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game_section .timer_container {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  right: 50px;
+  top: 70px;
+  background-color: #3e8ed0;
+}
+
+.game_section .answer_container {
+  position: absolute;
+  background-color: #3e8ed0;
+  border-radius: 50px;
+  left: 150px;
+  height: 40%;
+  width: 65%;
+  top: 70px;
+}
+
+.game_section .answer_container #answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.game_section .answer_container #answer #ans-a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .answer_container #answer #ans-b {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .answer_container #answer #ans-c {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .answer_container #answer #ans-d {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .answer_container #answer #ans-e {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .answer_container #answer #ans-f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container {
+  position: absolute;
+  background-color: #3e8ed0;
+  border-radius: 50px;
+  left: 150px;
+  height: 25%;
+  width: 65%;
+  bottom: 150px;
+}
+
+.game_section .challenge_container #challenge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.game_section .challenge_container #challenge #chg-a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container #challenge #chg-b {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container #challenge #chg-c {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container #challenge #chg-d {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container #challenge #chg-e {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+
+.game_section .challenge_container #challenge #chg-f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 90px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 50px;
+  margin: 23px;
+  font-size: 50px;
+}
+/*# sourceMappingURL=wordJumble.css.map */

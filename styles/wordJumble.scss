@@ -1,0 +1,255 @@
+.background_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44.6rem;
+  background-color: bisque;
+  .startbox_container{
+    height: 300px;
+    width: 600px;
+    background-color: #3e8ed0;
+    border-radius: 50px;
+    z-index:999;
+    text-decoration: none;
+    display: block;
+  
+    .title_container{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 120px;
+     margin-top: 20px;
+     
+  
+     #title{
+       font-size: 50px;
+       font-weight: 600;
+     }
+    }
+    .start_container{
+     display: flex;
+     height: 100px;
+     margin-top: 30px;
+      
+      #start_jumble{
+        height: 100px;
+        width: 50%;
+        border-radius: 50px;
+        font-size: 50px;
+        transition: 0.5s;
+        cursor: pointer;
+  
+        &:hover{
+          transform: scale(0.96);
+          transition: 0.2s;
+          background-color: #00d1b2;
+        }
+        &:active{
+          background: yellow;
+          transition: all 0.2s
+        }
+        &:active:after{
+          opacity: 1;
+          transition: 0s
+        }
+      }
+    }
+  }
+}
+
+.game_section{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+
+  .timer_container{
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    right: 50px;
+    top: 70px;
+    background-color: #3e8ed0;
+  }
+  .answer_container{
+    position: absolute;
+    background-color: #3e8ed0 ;
+    border-radius: 50px;
+    left: 150px;
+    height: 40%;
+    width: 65%;
+    top: 70px;
+    
+    #answer{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      #ans-a{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #ans-b{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #ans-c{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #ans-d{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #ans-e{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #ans-f{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+    }
+  }
+  .challenge_container{
+    position: absolute;
+    background-color: #3e8ed0 ;
+    border-radius: 50px;
+    left: 150px;
+    height: 25%;
+    width: 65%;
+    bottom: 150px;
+
+    #challenge{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      #chg-a{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #chg-b{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #chg-c{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #chg-d{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #chg-e{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+      #chg-f{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 90px;
+        background-color: white;
+        border-radius: 100px;
+        padding: 50px;
+        margin: 23px;
+        font-size: 50px; 
+      }
+    }
+  }
+}
