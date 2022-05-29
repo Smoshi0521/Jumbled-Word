@@ -1,16 +1,70 @@
 const startBox = document.getElementsByClassName("startbox_container");
 const startbtn = document.getElementById("start_jumble");
+const timerSection = document.getElementsByClassName("timer_section");
 const gameSection = document.getElementsByClassName("game_section");
-var sameStr = challenge;
-var answer = "      ";
-var index = 0;
-var challenge;
+var timer = document.getElementById("timer");
 // FrontPage
 function hideStartBox(){
     startBox[0].style.display = "none";
-    gameSection[0].style.opacity = 1;  
+    timerSection[0].style.display = "block";  
 }
-//GamePage
+function fiveMins(){
+  timerSection[0].style.display = "none";
+  gameSection[0].style.display = "block"; 
+  setInterval(fiveMinsCountdown,1000);
+  fiveMinsCountdown();
+
+}
+function tenMins(){
+  timerSection[0].style.display = "none";
+  gameSection[0].style.display = "block"; 
+  setInterval(tenMinsCountdown,1000);
+  tenMinsCountdown();
+}
+function fifteenMins(){
+  timerSection[0].style.display = "none";
+  gameSection[0].style.display = "block";  
+  setInterval(fifteenMinsCountdown,1000);
+  fifteenMinsCountdown();
+}
+// Timer section
+var fiveMinutes = 5; 
+var fiveTime = fiveMinutes * 60;
+function fiveMinsCountdown (){  
+  const minutes = Math.floor(fiveTime/60);
+  let seconds = fiveTime % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  timer.innerHTML = `${minutes}:${seconds}`;
+  fiveTime--;
+  if(fiveTime < 0){
+    fiveTime = 0;
+  }
+}
+var tenMinutes = 10; 
+var tenTime = tenMinutes * 60;
+function tenMinsCountdown (){  
+  const minutes = Math.floor(tenTime/60);
+  let seconds = tenTime % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  timer.innerHTML = `${minutes}:${seconds}`;
+  tenTime--;
+  if(tenTime < 0){
+    tenTime = 0;
+  }
+}
+var fifteenMinutes = 15; 
+var fifteenTime = fifteenMinutes * 60;
+function fifteenMinsCountdown (){  
+  const minutes = Math.floor(fifteenTime/60);
+  let seconds = fifteenTime % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  timer.innerHTML = `${minutes}:${seconds}`;
+  fifteenTime--;
+  if(fifteenTime < 0){
+    fifteenTime = 0;
+  }
+}
+//Read Text File
 var http = {
   loadTextFile: function(path, callback) {   
     var xobj = new XMLHttpRequest();
@@ -25,10 +79,15 @@ var http = {
     xobj.send(null);  
   }
 };
-//Read Text File
+
 http.loadTextFile('6 words.txt', function(response){
+//GamePage
   const sixWords = response.split(" ");
-  challenge = sixWords[Math.floor(Math.random() * sixWords.length)];
+  var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+  var challenge = getRandomWords;
+  var sameStr = challenge;
+  var answer = "      ";
+  var index = 0;
 
   function showChallenge(){
     document.getElementById("chg-a").innerHTML = challenge[0];
@@ -61,11 +120,11 @@ http.loadTextFile('6 words.txt', function(response){
         }
       }
       if(sixWords.includes(realAnswer)){
-        alert(`The word ${realAnswer} is correct!`);
+          alert(`The word ${realAnswer} is correct!`);
       }
       else{
         alert(`The word ${realAnswer} is not a word`);
-      }    
+      }  
     }
     else if (challenge.includes(letter)) {
       let i = challenge.indexOf(letter);
@@ -80,6 +139,7 @@ http.loadTextFile('6 words.txt', function(response){
       let arrLength;
       let indexArr = [];
       index--;
+  
       String.prototype.replaceAt = function(ndex, replacement) {
         if (ndex >= challenge.length) {
           return this.valueOf();
@@ -110,7 +170,6 @@ http.loadTextFile('6 words.txt', function(response){
     showAnswer();
     showChallenge();
   }
+  
 });
-
-
 

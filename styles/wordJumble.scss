@@ -12,7 +12,6 @@
     z-index:999;
     text-decoration: none;
     display: block;
-  
     .title_container{
      display: flex;
      justify-content: center;
@@ -50,29 +49,137 @@
         }
         &:active:after{
           opacity: 1;
-          transition: 0s
+          transition: 0s;
         }
       }
     }
   }
 }
 
+.timer_section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3e8ed0;
+  width: 50rem;
+  height: 300px;
+  display: none;
+  .timer_container{
+   height: 300px;
+   width: 50rem;
+    #chooseTimer_container{
+      display: flex;
+      align-items: center;
+      height: 100px;
+
+      p{
+        margin-left: 20px;
+        font-size: 50px;
+        font-weight: 900;
+      }
+    }
+  }
+  .timebutton_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    
+    #five-mins{
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      border-radius: 50px;
+      font-size: 30px;
+      font-weight: 900;
+      cursor: pointer;
+
+      &:hover{
+        transform: scale(0.96);
+        transition: 0.2s;
+        background-color: #00d1b2;
+      }
+      &:active{
+        background: yellow;
+        transition: all 0.2s;
+      }
+      &:active:after{
+        opacity: 1;
+        transition: 0s;
+      }
+    }
+    #ten-mins{
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      border-radius: 50px;
+      font-size: 30px;
+      font-weight: 900;
+
+      &:hover{
+        transform: scale(0.96);
+        transition: 0.2s;
+        background-color: #00d1b2;
+      }
+      &:active{
+        background: yellow;
+        transition: all 0.2s;
+      }
+      &:active:after{
+        opacity: 1;
+        transition: 0s;
+      }
+    }
+    #fifteen-mins{
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      border-radius: 50px;
+      font-size: 30px;
+      font-weight: 900;
+
+      &:hover{
+        transform: scale(0.96);
+        transition: 0.2s;
+        background-color: #00d1b2;
+      }
+      &:active{
+        background: yellow;
+        transition: all 0.2s;
+      }
+      &:active:after{
+        opacity: 1;
+        transition: 0s;
+      }
+    }
+  }
+}
 .game_section{
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0px;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
+  display: none;
 
   .timer_container{
     position: absolute;
+    display: flex;
+    align-items:center;
+    justify-content: center;
     width: 250px;
     height: 100px;
     right: 50px;
     top: 70px;
     background-color: #3e8ed0;
+
+    #timer{
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      font-size: 50px;
+      color: black;
+      font-weight: 600;
+    }
   }
   .answer_container{
     position: absolute;
