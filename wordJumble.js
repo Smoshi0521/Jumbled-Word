@@ -2,11 +2,11 @@ const startBox = document.getElementsByClassName("startbox_container");
 const startbtn = document.getElementById("start_jumble");
 const timerSection = document.getElementsByClassName("timer_section");
 const gameSection = document.getElementsByClassName("game_section");
-var timer = document.getElementById("timer");
+const timer = document.getElementById("timer");
 // FrontPage
 function hideStartBox(){
-    startBox[0].style.display = "none";
-    timerSection[0].style.display = "block";  
+  startBox[0].style.display = "none";
+  timerSection[0].style.display = "block";  
 }
 function fiveMinsButton(){
   timerSection[0].style.display = "none";
@@ -84,7 +84,8 @@ var http = {
 http.loadTextFile('6 words.txt', function(response){
 //GamePage
   const sixWords = response.split(" ");
-  const getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+  var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+
   function getJumbledWords(randomWords){
     let arrayWords = randomWords.split("");
     let lastIndex = arrayWords.length-1;
@@ -97,12 +98,11 @@ http.loadTextFile('6 words.txt', function(response){
     return arrayWords.join("");
   }
   console.log(getRandomWords);
-  var jumbleWords = getJumbledWords(getRandomWords);
-  var challenge = jumbleWords;
+  var challenge = getJumbledWords(getRandomWords);
   var sameStr = challenge;
   var answer = "      ";
   var index = 0;
-
+  
   function showChallenge(){
     document.getElementById("chg-a").innerHTML = challenge[0];
     document.getElementById("chg-b").innerHTML = challenge[1];
@@ -122,7 +122,7 @@ http.loadTextFile('6 words.txt', function(response){
   }
   showChallenge();
   document.addEventListener('keydown', logkey);
-  
+
   function logkey(e){
     const  {key}  = e;
     let letter = key.toLowerCase();
@@ -135,10 +135,19 @@ http.loadTextFile('6 words.txt', function(response){
       }
       if(sixWords.includes(realAnswer)){
           alert(`The word ${realAnswer} is correct!`);
+          getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+          console.log(getRandomWords);
+          challenge = getJumbledWords(getRandomWords);
+          sameStr = challenge;
+          answer = "      ";
+          index = 0;
+      }
+      else if(realAnswer.length !== 6){
+        alert(`You need 6 character of word`);
       }
       else{
-        alert(`The word ${realAnswer} is not a word`);
-      }  
+        alert(`${realAnswer} is not a word`);
+      }   
     }
     else if (challenge.includes(letter)) {
       let i = challenge.indexOf(letter);
@@ -160,26 +169,26 @@ http.loadTextFile('6 words.txt', function(response){
         }
         return this.substring(0, ndex) + replacement + this.substring(ndex + 1);
       }
-        for(let i = 0; i < answer.length; i++){
-          for(let j = answer.length-1; j>-1 ;j--){
-             if(answer[i] === sameStr[j]){
-               if(indexArr.includes(sameStr.indexOf(answer[i]))){
-                  numIndex = sameStr.lastIndexOf(answer[i]);
-                  break;
-               }
-               else{
-                indexArr.push(sameStr.indexOf(answer[i]));
-                numIndex = sameStr.indexOf(answer[i]);
-                break;
-              }
+      for(let i = 0; i < answer.length; i++){
+        for(let j = answer.length-1; j>-1 ;j--){
+          if(answer[i] === sameStr[j]){
+            if(indexArr.includes(sameStr.indexOf(answer[i]))){
+              numIndex = sameStr.lastIndexOf(answer[i]);
+              break;
+            }
+            else{
+              indexArr.push(sameStr.indexOf(answer[i]));
+              numIndex = sameStr.indexOf(answer[i]);
+              break;
             }
           }
         }
-        challenge = challenge.replaceAt(numIndex,answer[index]);
-        answer = answer.replaceAt(index," ");
-        if(indexArr.length >= 6){
-          indexArr = [];
-        }  
+      }
+      challenge = challenge.replaceAt(numIndex,answer[index]);
+      answer = answer.replaceAt(index," ");
+      if(indexArr.length >= 6){
+        indexArr = [];
+      }  
    }
     showAnswer();
     showChallenge();
