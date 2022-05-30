@@ -8,61 +8,62 @@ function hideStartBox(){
     startBox[0].style.display = "none";
     timerSection[0].style.display = "block";  
 }
-function fiveMins(){
+function fiveMinsButton(){
   timerSection[0].style.display = "none";
   gameSection[0].style.display = "block"; 
+  //timer
+  let fiveMinutes = 5; 
+  let fiveTime = fiveMinutes * 60;
+  function fiveMinsCountdown (){  
+    const minutes = Math.floor(fiveTime/60);
+    let seconds = fiveTime % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    timer.innerHTML = `${minutes}:${seconds}`;
+    fiveTime--;
+    if(fiveTime < 0){
+      fiveTime = 0;
+    }
+  }
   setInterval(fiveMinsCountdown,1000);
   fiveMinsCountdown();
-
 }
-function tenMins(){
+function tenMinsButton(){
   timerSection[0].style.display = "none";
   gameSection[0].style.display = "block"; 
+   //timer
+  let tenMinutes = 10; 
+  let tenTime = tenMinutes * 60;
+  function tenMinsCountdown (){  
+    const minutes = Math.floor(tenTime/60);
+    let seconds = tenTime % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    timer.innerHTML = `${minutes}:${seconds}`;
+    tenTime--;
+    if(tenTime < 0){
+      tenTime = 0;
+    }
+  }
   setInterval(tenMinsCountdown,1000);
   tenMinsCountdown();
 }
-function fifteenMins(){
+function fifteenMinsButton(){
   timerSection[0].style.display = "none";
   gameSection[0].style.display = "block";  
+   //timer
+  let fifteenMinutes = 15; 
+  let fifteenTime = fifteenMinutes * 60;
+  function fifteenMinsCountdown (){  
+    const minutes = Math.floor(fifteenTime/60);
+    let seconds = fifteenTime % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    timer.innerHTML = `${minutes}:${seconds}`;
+    fifteenTime--;
+    if(fifteenTime < 0){
+      fifteenTime = 0;
+    }
+  }
   setInterval(fifteenMinsCountdown,1000);
   fifteenMinsCountdown();
-}
-// Timer section
-var fiveMinutes = 5; 
-var fiveTime = fiveMinutes * 60;
-function fiveMinsCountdown (){  
-  const minutes = Math.floor(fiveTime/60);
-  let seconds = fiveTime % 60;
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-  timer.innerHTML = `${minutes}:${seconds}`;
-  fiveTime--;
-  if(fiveTime < 0){
-    fiveTime = 0;
-  }
-}
-var tenMinutes = 10; 
-var tenTime = tenMinutes * 60;
-function tenMinsCountdown (){  
-  const minutes = Math.floor(tenTime/60);
-  let seconds = tenTime % 60;
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-  timer.innerHTML = `${minutes}:${seconds}`;
-  tenTime--;
-  if(tenTime < 0){
-    tenTime = 0;
-  }
-}
-var fifteenMinutes = 15; 
-var fifteenTime = fifteenMinutes * 60;
-function fifteenMinsCountdown (){  
-  const minutes = Math.floor(fifteenTime/60);
-  let seconds = fifteenTime % 60;
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-  timer.innerHTML = `${minutes}:${seconds}`;
-  fifteenTime--;
-  if(fifteenTime < 0){
-    fifteenTime = 0;
-  }
 }
 //Read Text File
 var http = {
@@ -83,8 +84,21 @@ var http = {
 http.loadTextFile('6 words.txt', function(response){
 //GamePage
   const sixWords = response.split(" ");
-  var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
-  var challenge = getRandomWords;
+  const getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+  function getJumbledWords(randomWords){
+    let arrayWords = randomWords.split("");
+    let lastIndex = arrayWords.length-1;
+    for(var i = lastIndex; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arrayWords[i];
+        arrayWords[i] = arrayWords[j];
+        arrayWords[j] = tmp;
+    }
+    return arrayWords.join("");
+  }
+  console.log(getRandomWords);
+  var jumbleWords = getJumbledWords(getRandomWords);
+  var challenge = jumbleWords;
   var sameStr = challenge;
   var answer = "      ";
   var index = 0;
