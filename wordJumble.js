@@ -3,6 +3,11 @@ const startbtn = document.getElementById("start_jumble");
 const timerSection = document.getElementsByClassName("timer_section");
 const gameSection = document.getElementsByClassName("game_section");
 const timer = document.getElementById("timer");
+const timeIsUp_container = document.getElementsByClassName("timeIsUp_container");
+const timeIsUp =  document.getElementById("timeIsUp");
+const homeButton = document.getElementById("homeBtn");
+
+console.log(homeButton);
 // FrontPage
 function hideStartBox(){
   startBox[0].style.display = "none";
@@ -20,8 +25,21 @@ function fiveMinsButton(){
     seconds = seconds < 10 ? '0' + seconds : seconds;
     timer.innerHTML = `${minutes}:${seconds}`;
     fiveTime--;
+    if(fiveTime < 10){
+      timer.style.animation = "blinkingBackground 2s infinite";
+    }
     if(fiveTime < 0){
+      timer.innerHTML = `0:00`;
+      gameSection[0].style.opacity = 0.5; 
+      timeIsUp_container[0].style.display = "flex";
+      gameSection[0].style.animation = "fadeOut 4s";
+    }
+    if(fiveTime <= -5){
       fiveTime = 0;
+      timeIsUp.style.top ="50px";
+      timeIsUp.innerHTML = "Great Work!"
+      homeButton.style.display = "block";
+      gameSection[0].style.display = "none";
     }
   }
   setInterval(fiveMinsCountdown,1000);
@@ -39,8 +57,21 @@ function tenMinsButton(){
     seconds = seconds < 10 ? '0' + seconds : seconds;
     timer.innerHTML = `${minutes}:${seconds}`;
     tenTime--;
+    if(tenTime < 10){
+      timer.style.animation = "blinkingBackground 2s infinite";
+    }
     if(tenTime < 0){
+      timer.innerHTML = `0:00`;
+      gameSection[0].style.opacity = 0.5; 
+      timeIsUp_container[0].style.display = "flex";
+      gameSection[0].style.animation = "fadeOut 4s";
+    }
+    if(tenTime <= -5){
       tenTime = 0;
+      timeIsUp.style.top ="50px";
+      timeIsUp.innerHTML = "Great Work!"
+      homeButton.style.display = "block";
+      gameSection[0].style.display = "none";
     }
   }
   setInterval(tenMinsCountdown,1000);
@@ -58,8 +89,21 @@ function fifteenMinsButton(){
     seconds = seconds < 10 ? '0' + seconds : seconds;
     timer.innerHTML = `${minutes}:${seconds}`;
     fifteenTime--;
+    if(fifteenTime < 10){
+      timer.style.animation = "blinkingBackground 2s infinite";
+    }
     if(fifteenTime < 0){
+      timer.innerHTML = `0:00`;
+      gameSection[0].style.opacity = 0.5; 
+      timeIsUp_container[0].style.display = "flex";
+      gameSection[0].style.animation = "fadeOut 4s";
+    }
+    if(fifteenTime <= -5){
       fifteenTime = 0;
+      timeIsUp.style.top ="50px";
+      timeIsUp.innerHTML = "Great Work!"
+      homeButton.style.display = "block";
+      gameSection[0].style.display = "none";
     }
   }
   setInterval(fifteenMinsCountdown,1000);
@@ -85,7 +129,6 @@ http.loadTextFile('6 words.txt', function(response){
 //GamePage
   const sixWords = response.split(" ");
   var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
-
   function getJumbledWords(randomWords){
     let arrayWords = randomWords.split("");
     let lastIndex = arrayWords.length-1;
@@ -98,7 +141,8 @@ http.loadTextFile('6 words.txt', function(response){
     return arrayWords.join("");
   }
   console.log(getRandomWords);
-  var challenge = getJumbledWords(getRandomWords);
+  var jumbledWords = getJumbledWords(getRandomWords);
+  var challenge = jumbledWords;
   var sameStr = challenge;
   var answer = "      ";
   var index = 0;
@@ -134,19 +178,27 @@ http.loadTextFile('6 words.txt', function(response){
         }
       }
       if(sixWords.includes(realAnswer)){
-          alert(`The word ${realAnswer} is correct!`);
-          getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
-          console.log(getRandomWords);
-          challenge = getJumbledWords(getRandomWords);
-          sameStr = challenge;
-          answer = "      ";
-          index = 0;
+        alert(`The word ${realAnswer} is correct!`);
+        getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+        console.log(getRandomWords);
+        challenge = getJumbledWords(getRandomWords);
+        sameStr = challenge;
+        answer = "      ";
+        index = 0;
       }
       else if(realAnswer.length !== 6){
         alert(`You need 6 character of word`);
+        challenge = jumbledWords;
+        sameStr = challenge;
+        answer = "      ";
+        index = 0; 
       }
       else{
         alert(`${realAnswer} is not a word`);
+        challenge = jumbledWords;
+        sameStr = challenge;
+        answer = "      ";
+        index = 0; 
       }   
     }
     else if (challenge.includes(letter)) {
@@ -193,6 +245,5 @@ http.loadTextFile('6 words.txt', function(response){
     showAnswer();
     showChallenge();
   }
-  
 });
 

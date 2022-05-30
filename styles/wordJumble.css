@@ -222,7 +222,44 @@
   height: 100%;
   width: 100%;
   top: 0px;
+  z-index: 0;
   display: none;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .game_section .timer_container {
@@ -256,6 +293,30 @@
   font-size: 50px;
   color: black;
   font-weight: 600;
+}
+
+@-webkit-keyframes blinkingBackground {
+  0% {
+    color: black;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes blinkingBackground {
+  0% {
+    color: black;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: black;
+  }
 }
 
 .game_section .answer_container {
@@ -530,5 +591,84 @@
   padding: 50px;
   margin: 23px;
   font-size: 50px;
+}
+
+.timeIsUp_container {
+  position: absolute;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: aqua;
+  border-radius: 50px;
+  top: 130px;
+  left: 27rem;
+  width: 40rem;
+  height: 20rem;
+  z-index: 2;
+}
+
+.timeIsUp_container #timeIsUp {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30rem;
+  height: 100px;
+  font-size: 50px;
+}
+
+.timeIsUp_container #home_container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 80px;
+  width: 30rem;
+  height: 100px;
+}
+
+.timeIsUp_container #home_container #homeBtn {
+  display: none;
+  border-radius: 50px;
+  width: 250px;
+  height: 80px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.timeIsUp_container #home_container #homeBtn:hover {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #00d1b2;
+}
+
+.timeIsUp_container #home_container #homeBtn:active {
+  background: yellow;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.timeIsUp_container #home_container #homeBtn:active:after {
+  opacity: 1;
+  -webkit-transition: 0s;
+  transition: 0s;
 }
 /*# sourceMappingURL=wordJumble.css.map */
