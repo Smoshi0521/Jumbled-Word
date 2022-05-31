@@ -129,14 +129,19 @@ http.loadTextFile('6 words.txt', function(response){
 //GamePage
   const sixWords = response.split(" ");
   var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+  var correctWord = [];
+  var jumbledWord = [];
+  var jbWordLastElement = 0;
+  console.log(correctWord);
+  correctWord.push(getRandomWords);
   function getJumbledWords(randomWords){
     let arrayWords = randomWords.split("");
     let lastIndex = arrayWords.length-1;
     for(var i = lastIndex; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = arrayWords[i];
-        arrayWords[i] = arrayWords[j];
-        arrayWords[j] = tmp;
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arrayWords[i];
+      arrayWords[i] = arrayWords[j];
+      arrayWords[j] = tmp;
     }
     return arrayWords.join("");
   }
@@ -146,7 +151,7 @@ http.loadTextFile('6 words.txt', function(response){
   var sameStr = challenge;
   var answer = "      ";
   var index = 0;
-  
+  var goHere = false;
   function showChallenge(){
     document.getElementById("chg-a").innerHTML = challenge[0];
     document.getElementById("chg-b").innerHTML = challenge[1];
@@ -168,6 +173,7 @@ http.loadTextFile('6 words.txt', function(response){
   document.addEventListener('keydown', logkey);
 
   function logkey(e){
+    var score = document.getElementById("numOfScore");
     const  {key}  = e;
     let letter = key.toLowerCase();
     if (letter === 'enter') {
@@ -177,28 +183,46 @@ http.loadTextFile('6 words.txt', function(response){
           realAnswer += answer[i];
         }
       }
-      if(sixWords.includes(realAnswer)){
+      if(correctWord.includes(realAnswer)){
         alert(`The word ${realAnswer} is correct!`);
         getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
         console.log(getRandomWords);
+        correctWord.push(getRandomWords);
         challenge = getJumbledWords(getRandomWords);
+        jumbledWord.push(challenge);
+        sameStr = challenge;
+        answer = "      ";
+        index = 0;  
+        jbWordLastElement++;
+        goHere = true;
+      }
+      else if(realAnswer.length !== 6 && goHere === true){
+        alert(`You need 6 character of word`);
+        challenge = jumbledWord[jbWordLastElement-1];
         sameStr = challenge;
         answer = "      ";
         index = 0;
       }
-      else if(realAnswer.length !== 6){
+      else if(correctWord.includes(realAnswer) === false && goHere === true){
+        alert(`${realAnswer} is not a word`);
+        challenge = jumbledWord[jbWordLastElement-1];
+        sameStr = challenge;
+        answer = "      ";
+        index = 0;
+      }
+      else if(realAnswer.length !== 6 && goHere === false){
         alert(`You need 6 character of word`);
         challenge = jumbledWords;
         sameStr = challenge;
         answer = "      ";
-        index = 0; 
+        index = 0;
       }
-      else{
+      else if(correctWord.includes(realAnswer) === false && goHere === false){
         alert(`${realAnswer} is not a word`);
         challenge = jumbledWords;
         sameStr = challenge;
         answer = "      ";
-        index = 0; 
+        index = 0;
       }   
     }
     else if (challenge.includes(letter)) {
@@ -208,10 +232,7 @@ http.loadTextFile('6 words.txt', function(response){
       index++;
     }
     else if (letter === 'backspace' && answer !== "      "){
-      let ansIndex;
-      let chgIndex;
       let numIndex;
-      let arrLength;
       let indexArr = [];
       index--;
   

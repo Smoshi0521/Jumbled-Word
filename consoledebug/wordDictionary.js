@@ -12,10 +12,8 @@ var http = {
     xobj.send(null);  
   }
 };
-http.loadTextFile('2words.txt', function(response){
-  console.log(response);
-  function findWords(f){
-    
-  }
-  document.getElementById("arr").innerHTML = findWords(response);
+http.loadTextFile('2words.txt', function twoWord(response){
+  return response;
 });
+console.log(twoWord());
+

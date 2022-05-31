@@ -19,7 +19,7 @@
   border-radius: 50px;
   z-index: 999;
   text-decoration: none;
-  display: block;
+  display: none;
 }
 
 .background_container .startbox_container .title_container {
@@ -223,7 +223,7 @@
   width: 100%;
   top: 0px;
   z-index: 0;
-  display: none;
+  display: block;
 }
 
 @-webkit-keyframes fadeOut {
@@ -591,6 +591,28 @@
   padding: 50px;
   margin: 23px;
   font-size: 50px;
+}
+
+.game_section .score_container {
+  position: absolute;
+  background-color: #3e8ed0;
+  top: 230px;
+  right: 50px;
+  width: 250px;
+  height: 280px;
+}
+
+.game_section .score_container #score {
+  position: absolute;
+  width: 250px;
+  height: 130px;
+}
+
+.game_section .score_container #numberOFGuess {
+  position: absolute;
+  top: 148px;
+  width: 250px;
+  height: 130px;
 }
 
 .timeIsUp_container {

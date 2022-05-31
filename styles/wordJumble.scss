@@ -11,7 +11,7 @@
     border-radius: 50px;
     z-index:999;
     text-decoration: none;
-    display: block;
+    display: none;
     .title_container{
      display: flex;
      justify-content: center;
@@ -161,7 +161,7 @@
   width: 100%;
   top: 0px;
   z-index: 0;
-  display: none;
+  display: block;
   
   @keyframes fadeOut{
     0% {opacity: 0.4;}
@@ -373,6 +373,27 @@
         margin: 23px;
         font-size: 50px; 
       }
+    }
+  }
+  .score_container{
+    position: absolute;
+    background-color: #3e8ed0;
+    top: 230px;
+    right: 50px;
+    width: 250px;
+    height: 280px;
+
+    #score{
+      position: absolute;
+      width: 250px;
+      height: 130px;
+    }
+
+    #numberOFGuess{
+      position: absolute;
+      top: 148px;
+      width: 250px;
+      height: 130px;
     }
   }
 }

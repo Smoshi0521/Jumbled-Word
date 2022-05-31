@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Word Jumble!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- <link rel="stylesheet" href="styles/debug.css"> -->
+    <link rel="stylesheet" href="styles/debug.css">
     <link rel="stylesheet" href="styles/wordJumble.css">
     
     <!-- CONNECTION TO FIREBASE -->
@@ -96,7 +96,7 @@
           <div class = "timebutton_container">
             <button id = "five-mins" onclick = "fiveMinsButton()" type = "submit">5 minutes</button>
             <button id = "ten-mins" onclick = "tenMinsButton() ">10 minutes</button>
-            <button id = "fifteen-mins" onclick = "fifteenMinsButton() ">15 minutes</button>
+            <button id = "fifteen-mins" onclick = "fifteenMinsButton()">15 minutes</button>
           </div>
         </div>
       </section>
@@ -129,8 +129,17 @@
             <div id = "chg-f"></div>
           </div>
         </div>
+        <div class = score_container>
+          <div id = score>
+            <p>SCORE:</p>
+            <p id = "numOfScore">0</p>
+          </div>
+          <div id = numberOFGuess>
+            <p>NUMBER OF GUESS:</p>
+            <p id = "numOfGuess">0 </p>
+          </div>
+        </div>
     </section>
-
     <div class = "timeIsUp_container">
       <div id = "timeIsUp">
         TIME IS UP!
