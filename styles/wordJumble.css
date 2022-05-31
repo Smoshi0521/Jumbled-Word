@@ -19,7 +19,7 @@
   border-radius: 50px;
   z-index: 999;
   text-decoration: none;
-  display: none;
+  display: block;
 }
 
 .background_container .startbox_container .title_container {
@@ -223,7 +223,7 @@
   width: 100%;
   top: 0px;
   z-index: 0;
-  display: block;
+  display: none;
 }
 
 @-webkit-keyframes fadeOut {
@@ -604,15 +604,49 @@
 
 .game_section .score_container #score {
   position: absolute;
+  font-size: 25px;
   width: 250px;
   height: 130px;
 }
 
-.game_section .score_container #numberOFGuess {
+.game_section .score_container #score #numOfScore {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.game_section .score_container #score p {
+  font-weight: 700;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game_section .score_container #numberOfGuess {
   position: absolute;
+  font-size: 25px;
   top: 148px;
   width: 250px;
   height: 130px;
+}
+
+.game_section .score_container #numberOfGuess #numOfGuess {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.game_section .score_container #numberOfGuess p {
+  font-weight: 700;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .timeIsUp_container {

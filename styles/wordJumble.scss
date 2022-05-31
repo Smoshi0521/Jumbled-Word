@@ -11,7 +11,7 @@
     border-radius: 50px;
     z-index:999;
     text-decoration: none;
-    display: none;
+    display: block;
     .title_container{
      display: flex;
      justify-content: center;
@@ -161,7 +161,7 @@
   width: 100%;
   top: 0px;
   z-index: 0;
-  display: block;
+  display: none;
   
   @keyframes fadeOut{
     0% {opacity: 0.4;}
@@ -385,15 +385,39 @@
 
     #score{
       position: absolute;
+      font-size: 25px;
       width: 250px;
       height: 130px;
+
+      #numOfScore{
+        margin-top: 20px;
+        font-size: 30px;
+      }
+      p{
+        font-weight: 700;
+        color: black;
+        display: flex;
+        justify-content: center;
+      }
     }
 
-    #numberOFGuess{
+    #numberOfGuess{
       position: absolute;
+      font-size: 25px;
       top: 148px;
       width: 250px;
       height: 130px;
+
+      #numOfGuess{
+        margin-top: 20px;
+        font-size: 30px;
+      }
+      p{
+        font-weight: 700;
+        color: black;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Word Jumble!</title>
+    <title>Word Is Jumbled!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="styles/debug.css">
+    <!-- <link rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/wordJumble.css">
     
     <!-- CONNECTION TO FIREBASE -->
@@ -81,7 +81,7 @@
     <section class="background_container">
       <div class="startbox_container">
         <div class="title_container">
-          <h1 id = "title">WORD JUMBLE</h1>
+          <h1 id = "title">WORD IS JUMBLED!</h1>
         </div>
         <div class="start_container is-justify-content-center is-align-content-center">
           <button id = "start_jumble" onclick = "hideStartBox()">START</button>
@@ -129,12 +129,12 @@
             <div id = "chg-f"></div>
           </div>
         </div>
-        <div class = score_container>
-          <div id = score>
+        <div class = "score_container">
+          <div id = "score">
             <p>SCORE:</p>
             <p id = "numOfScore">0</p>
           </div>
-          <div id = numberOFGuess>
+          <div id = "numberOfGuess">
             <p>NUMBER OF GUESS:</p>
             <p id = "numOfGuess">0 </p>
           </div>

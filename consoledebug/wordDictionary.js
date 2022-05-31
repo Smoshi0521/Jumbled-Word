@@ -12,8 +12,15 @@ var http = {
     xobj.send(null);  
   }
 };
-http.loadTextFile('2words.txt', function twoWord(response){
-  return response;
+http.loadTextFile('6 character of words.txt', function(response){
+  let words = response.split("\n");
+  var wordArray = [];
+  var empty = " ";
+  var getWord =  document.getElementById("arr").innerHTML = " ";
+  for(let i = 0; i < words.length-1;i++){ 
+    empty += words[i].toLowerCase();
+  }
+  document.getElementById("arr").innerHTML = empty;
 });
-console.log(twoWord());
+
 

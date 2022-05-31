@@ -125,14 +125,15 @@ var http = {
   }
 };
 
-http.loadTextFile('6 words.txt', function(response){
+http.loadTextFile('6 character of words.txt', function(response){
 //GamePage
   const sixWords = response.split(" ");
   var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
+
+  console.log(getRandomWords); // check for for correct answer
   var correctWord = [];
   var jumbledWord = [];
   var jbWordLastElement = 0;
-  console.log(correctWord);
   correctWord.push(getRandomWords);
   function getJumbledWords(randomWords){
     let arrayWords = randomWords.split("");
@@ -145,11 +146,10 @@ http.loadTextFile('6 words.txt', function(response){
     }
     return arrayWords.join("");
   }
-  console.log(getRandomWords);
   var jumbledWords = getJumbledWords(getRandomWords);
   var challenge = jumbledWords;
-  var sameStr = challenge;
-  var answer = "      ";
+  var copyChallenge = challenge;
+  var answerContainer = "      ";
   var index = 0;
   var goHere = false;
   function showChallenge(){
@@ -162,36 +162,53 @@ http.loadTextFile('6 words.txt', function(response){
   }
   
   function showAnswer(){
-    document.getElementById("ans-a").innerHTML = answer[0];
-    document.getElementById("ans-b").innerHTML = answer[1];
-    document.getElementById("ans-c").innerHTML = answer[2];
-    document.getElementById("ans-d").innerHTML = answer[3];
-    document.getElementById("ans-e").innerHTML = answer[4];
-    document.getElementById("ans-f").innerHTML = answer[5];
+    document.getElementById("ans-a").innerHTML = answerContainer[0];
+    document.getElementById("ans-b").innerHTML = answerContainer[1];
+    document.getElementById("ans-c").innerHTML = answerContainer[2];
+    document.getElementById("ans-d").innerHTML = answerContainer[3];
+    document.getElementById("ans-e").innerHTML = answerContainer[4];
+    document.getElementById("ans-f").innerHTML = answerContainer[5];
   }
   showChallenge();
   document.addEventListener('keydown', logkey);
 
   function logkey(e){
     var score = document.getElementById("numOfScore");
+    var guessWords = document.getElementById("numOfGuess");
+    var numOfGuess = 0;
+    var numOfScores = 0;
     const  {key}  = e;
     let letter = key.toLowerCase();
     if (letter === 'enter') {
       var realAnswer = "";
-      for(let i = 0; i < answer.length; i++){
-        if(answer[i] !== " "){
-          realAnswer += answer[i];
+      for(let i = 0; i < answerContainer.length; i++){
+        if(answerContainer[i] !== " "){
+          realAnswer += answerContainer[i];
         }
       }
       if(correctWord.includes(realAnswer)){
         alert(`The word ${realAnswer} is correct!`);
+
+        for(let i = 0; i <= correctWord.length-1; i++){ //Count for the scores and correct guess words
+          let scoreToStr;
+          let guessToStr;
+          numOfScores = numOfScores + 150;
+          numOfGuess = numOfGuess + 1;
+          if(i === correctWord.length-1){
+            scoreToStr = numOfScores.toString();
+            guessToStr = numOfGuess.toString();
+            score.innerHTML = scoreToStr;
+            guessWords.innerHTML = guessToStr;
+            break;
+          }
+        }
         getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
         console.log(getRandomWords);
         correctWord.push(getRandomWords);
         challenge = getJumbledWords(getRandomWords);
         jumbledWord.push(challenge);
-        sameStr = challenge;
-        answer = "      ";
+        copyChallenge = challenge;
+        answerContainer = "      ";
         index = 0;  
         jbWordLastElement++;
         goHere = true;
@@ -199,39 +216,39 @@ http.loadTextFile('6 words.txt', function(response){
       else if(realAnswer.length !== 6 && goHere === true){
         alert(`You need 6 character of word`);
         challenge = jumbledWord[jbWordLastElement-1];
-        sameStr = challenge;
-        answer = "      ";
+        copyChallenge = challenge;
+        answerContainer = "      ";
         index = 0;
       }
       else if(correctWord.includes(realAnswer) === false && goHere === true){
-        alert(`${realAnswer} is not a word`);
+        alert(`"${realAnswer}" is not a word`);
         challenge = jumbledWord[jbWordLastElement-1];
-        sameStr = challenge;
-        answer = "      ";
+        copyChallenge = challenge;
+        answerContainer = "      ";
         index = 0;
       }
       else if(realAnswer.length !== 6 && goHere === false){
         alert(`You need 6 character of word`);
         challenge = jumbledWords;
-        sameStr = challenge;
-        answer = "      ";
+        copyChallenge = challenge;
+        answerContainer = "      ";
         index = 0;
       }
       else if(correctWord.includes(realAnswer) === false && goHere === false){
-        alert(`${realAnswer} is not a word`);
+        alert(`"${realAnswer}" is not a word`);
         challenge = jumbledWords;
-        sameStr = challenge;
-        answer = "      ";
+        copyChallenge = challenge;
+        answerContainer = "      ";
         index = 0;
       }   
     }
     else if (challenge.includes(letter)) {
       let i = challenge.indexOf(letter);
-      answer = answer.replace(answer[index], challenge[i]);
+      answerContainer = answerContainer.replace(answerContainer[index], challenge[i]);
       challenge = challenge.replace(challenge[i], " ");
       index++;
     }
-    else if (letter === 'backspace' && answer !== "      "){
+    else if (letter === 'backspace' && answerContainer !== "      "){
       let numIndex;
       let indexArr = [];
       index--;
@@ -242,23 +259,23 @@ http.loadTextFile('6 words.txt', function(response){
         }
         return this.substring(0, ndex) + replacement + this.substring(ndex + 1);
       }
-      for(let i = 0; i < answer.length; i++){
-        for(let j = answer.length-1; j>-1 ;j--){
-          if(answer[i] === sameStr[j]){
-            if(indexArr.includes(sameStr.indexOf(answer[i]))){
-              numIndex = sameStr.lastIndexOf(answer[i]);
+      for(let i = 0; i < answerContainer.length; i++){
+        for(let j = answerContainer.length-1; j>-1 ;j--){
+          if(answerContainer[i] === copyChallenge[j]){
+            if(indexArr.includes(copyChallenge.indexOf(answerContainer[i]))){
+              numIndex = copyChallenge.lastIndexOf(answerContainer[i]);
               break;
             }
             else{
-              indexArr.push(sameStr.indexOf(answer[i]));
-              numIndex = sameStr.indexOf(answer[i]);
+              indexArr.push(copyChallenge.indexOf(answerContainer[i]));
+              numIndex = copyChallenge.indexOf(answerContainer[i]);
               break;
             }
           }
         }
       }
-      challenge = challenge.replaceAt(numIndex,answer[index]);
-      answer = answer.replaceAt(index," ");
+      challenge = challenge.replaceAt(numIndex,answerContainer[index]);
+      answerContainer = answerContainer.replaceAt(index," ");
       if(indexArr.length >= 6){
         indexArr = [];
       }  
