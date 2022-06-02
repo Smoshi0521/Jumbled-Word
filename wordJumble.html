@@ -8,8 +8,8 @@
     <!-- <link rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/wordJumble.css">
     
-    <!-- CONNECTION TO FIREBASE -->
-    <!-- <script type="module">
+    <!-- CONNECTION TO FIREBASE --> 
+     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
       import {getStorage,ref, uploadString} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
@@ -47,33 +47,37 @@
       //   console.log("succesful");
       // })
       //FIRESTORE
-      const docRef = doc(firestore,'user/1');
-      setDoc(docRef, {
-        id: 1,
-        name: 'Tan',
-        age: 21,
-        favoriteGames: ['COD', 'Axie'],
-        subjects: [
-          {
-            name: 'Math',
-            grade: 99
-          },
-          {
-            name: 'English',
-            grade: 21
-          },
-        ]  
-      });
-      // const docRef = doc(firestore,'user/1');
+      // const docRef = doc(firestore,'user/8');
+      // setDoc(docRef, {
+      //   id: 2,
+      //   name: 'Joli',
+      //   age: 16,
+      //   favoriteGames: ['Roblox', 'Minecraft'],
+      //   subjects: [
+      //     {
+      //       name: 'English',
+      //       grade: 100
+      //     },
+      //     {
+      //       name: 'Math',
+      //       grade: 100
+      //     },
+      //   ]  
+      // });
       // const res = await getDoc(docRef);
-      // console.log(res.data());
-      const userCollection = collection(firestore, 'user');
-      const userQuery = query(userCollection);
-      const result = await getDocs(userQuery);
-      result.forEach(data =>{
-        console.log(data.data());
-      });
-    </script> -->
+      const colRef = collection(firestore, 'user');
+      var user = [];
+      var lastName = " Soriano";
+      getDocs(colRef)
+      .then((snapshot) => {
+       
+        snapshot.docs.forEach((doc) =>{
+          user.push({...doc.data()});
+        })
+        console.log(user[0].name + lastName);
+      })
+      
+    </script>
 
   </head>
   <body>
@@ -101,8 +105,16 @@
         </div>
       </section>
     </section>  
-    <!-- Word Jumble Game section -->
+    <!--Game section -->
     <section class = "game_section">
+      <div class = "alert_container">
+        <p id = "GuessTheWord">
+          GUESS THE WORD!
+        </p>
+        <p id = "alert">
+          
+        </p>
+      </div>
         <div class = "timer_container">
             <div id = "timer">
 
