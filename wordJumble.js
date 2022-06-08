@@ -6,8 +6,6 @@ const timer = document.getElementById("timer");
 const timeIsUp_container = document.getElementsByClassName("timeIsUp_container");
 const timeIsUp =  document.getElementById("timeIsUp");
 const homeButton = document.getElementById("homeBtn");
-
-console.log(homeButton);
 // FrontPage
 function hideStartBox(){
   startBox[0].style.display = "none";
@@ -131,10 +129,10 @@ http.loadTextFile('6 character of words.txt', function(response){
   var getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
 
   console.log(getRandomWords); // check for for correct answer
-  var correctWord = [];
+  var correctWord = []; //push the correct guess word to avoid guess the other word
+  correctWord.push(getRandomWords);
   var jumbledWord = [];
   var jbWordLastElement = 0;
-  correctWord.push(getRandomWords);
 
   function getJumbledWords(randomWords){
     let arrayWords = randomWords.split("");
@@ -150,7 +148,7 @@ http.loadTextFile('6 character of words.txt', function(response){
 
   var jumbledWords = getJumbledWords(getRandomWords);
   var challenge = jumbledWords;
-  var copyChallenge = challenge;
+  var copyChallenge = challenge; //copy the index of the letter to return to its same index
   var answerContainer = "      ";
   var index = 0;
   var goHere = false;
@@ -209,7 +207,7 @@ http.loadTextFile('6 character of words.txt', function(response){
         }
         
         getRandomWords = sixWords[Math.floor(Math.random() * sixWords.length)];
-        console.log(getRandomWords);
+        console.log(getRandomWords); // check answer for the next challenge
         correctWord.push(getRandomWords);
         challenge = getJumbledWords(getRandomWords);
         jumbledWord.push(challenge);
@@ -283,14 +281,13 @@ http.loadTextFile('6 character of words.txt', function(response){
           }
         }
       }
-
       challenge = challenge.replaceAt(numIndex,answerContainer[index]);
       answerContainer = answerContainer.replaceAt(index," ");
+
       if(indexArr.length >= 6){
         indexArr = [];
       }  
    }
-
     showAnswer();
     showChallenge();
   }

@@ -90,6 +90,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #3e8ed0;
+  border-radius: 50px;
   width: 50rem;
   height: 300px;
   display: none;
@@ -660,6 +661,7 @@
   font-size: 25px;
   width: 250px;
   height: 130px;
+  border-bottom: 5px solid black;
 }
 
 .game_section .score_container #score #numOfScore {

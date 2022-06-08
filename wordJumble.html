@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/wordJumble.css">
     
     <!-- CONNECTION TO FIREBASE --> 
-     <script type="module">
+     <!-- <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
       import {getStorage,ref, uploadString} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
@@ -77,8 +77,7 @@
         console.log(user[0].name + lastName);
       })
       
-    </script>
-
+    </script> -->
   </head>
   <body>
     <!-- Start box section -->
@@ -98,7 +97,7 @@
             <p>CHOOSE:</p>
           </div>
           <div class = "timebutton_container">
-            <button id = "five-mins" onclick = "fiveMinsButton()" type = "submit">5 minutes</button>
+            <button id = "five-mins" onclick = "fiveMinsButton()" >5 minutes</button>
             <button id = "ten-mins" onclick = "tenMinsButton() ">10 minutes</button>
             <button id = "fifteen-mins" onclick = "fifteenMinsButton()">15 minutes</button>
           </div>

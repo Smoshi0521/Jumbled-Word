@@ -1,0 +1,38 @@
+.background{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #B46F42;
+  width: 100%;
+  height: 44.6rem;
+  
+}
+.board_container{
+  background-color: green;
+  border: 2px solid black;
+  position: absolute;
+  top: 50px;
+  width: 700px;
+  height: 600px;
+  overflow: auto;
+  .time_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 70px;
+    border-bottom: 5px solid black;
+
+    #timeChallenge{
+    width: 250px;
+    height: 70px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+  }
+  // .leaderboard{
+
+  // }
+}
