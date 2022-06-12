@@ -454,6 +454,38 @@
       }
     }
   }
+  .exitBtn_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    width: 200px;
+    height: 80px;
+  
+    #exitBtn{
+      font-size: 30px;
+      font-weight: 600;
+      width: 180px;
+      height: 70px;
+      border-radius: 50px;
+  
+      &:hover{
+        transform: scale(0.96);
+        transition: 0.2s;
+        background-color: #00d1b2;
+      }
+      &:active{
+        background: yellow;
+        transition: all 0.2s;
+      }
+      &:active:after{
+        opacity: 1;
+        transition: 0s;
+      }
+    }
+  }
 }
 .timeIsUp_container{
   position: absolute;

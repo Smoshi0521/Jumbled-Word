@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="styles/wordJumble.css">
     
     <!-- CONNECTION TO FIREBASE --> 
-     <!-- <script type="module">
+     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-      import {getStorage,ref, uploadString} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
+      // import {getStorage,ref, uploadString} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
       import { 
         doc,
         getFirestore,
         setDoc,
-        collection,
-        query,
-        getDocs,
-        getDoc
+        // collection,
+        // query,
+        // getDocs,
+        // getDoc
       } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,47 +37,48 @@
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const storage = getStorage();
+      // const storage = getStorage();
       const firestore = getFirestore();
-      const storageRef = ref(storage);
+      // const storageRef = ref(storage);
 
-      // const imageRef = ref(storage,'images/sample.txt');
-      // const rawString = 'This is my messages.';
-      // uploadString(imageRef, rawString).then (snapshot =>{
-      //   console.log("succesful");
+      // const textRef = ref(storage,'text/message.txt');
+      // const rawString = 'HELLO WORLD!';
+      // uploadString(textRef, rawString).then (snapshot =>{
+      //   console.log("upload string successfully!");
       // })
-      //FIRESTORE
-      // const docRef = doc(firestore,'user/8');
-      // setDoc(docRef, {
-      //   id: 2,
-      //   name: 'Joli',
-      //   age: 16,
-      //   favoriteGames: ['Roblox', 'Minecraft'],
-      //   subjects: [
-      //     {
-      //       name: 'English',
-      //       grade: 100
-      //     },
-      //     {
-      //       name: 'Math',
-      //       grade: 100
-      //     },
-      //   ]  
-      // });
+      // FIRESTORE
+
+      const docRef = doc(firestore,'book/Harry Potter 1');
+      setDoc(docRef, {
+        id: 2,
+        name: 'Tangent',
+        age: 16,
+        favoriteGames: ['Roblox', 'Minecraft'],
+        subjects: [
+          {
+            name: 'English',
+            grade: 100
+          },
+          {
+            name: 'Math',
+            grade: 100
+          },
+        ]  
+      });
       // const res = await getDoc(docRef);
-      const colRef = collection(firestore, 'user');
-      var user = [];
-      var lastName = " Soriano";
-      getDocs(colRef)
-      .then((snapshot) => {
+      // const colRef = collection(firestore, 'user');
+      // var user = [];
+      // var lastName = " Soriano";
+      // getDocs(colRef)
+      // .then((snapshot) => {
        
-        snapshot.docs.forEach((doc) =>{
-          user.push({...doc.data()});
-        })
-        console.log(user[0].name + lastName);
-      })
+      //   snapshot.docs.forEach((doc) =>{
+      //     user.push({...doc.data()});
+      //   })
+      //   console.log(user[0].name + lastName);
+      // })
       
-    </script> -->
+    </script>
   </head>
   <body>
     <!-- Start box section -->
@@ -108,7 +109,7 @@
     <section class = "game_section">
       <div class = "alert_container">
         <p id = "GuessTheWord">
-          GUESS THE WORD!
+          GUESS THE WORD
         </p>
         <p id = "alert">
           
@@ -149,6 +150,9 @@
             <p>NUMBER OF GUESS:</p>
             <p id = "numOfGuess">0 </p>
           </div>
+        </div>
+        <div class = "exitBtn_container">
+          <button id = "exitBtn" onclick = "window.location.reload()">EXIT</button>
         </div>
     </section>
     <div class = "timeIsUp_container">

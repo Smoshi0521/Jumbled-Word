@@ -26,6 +26,7 @@ function fiveMinsButton(){
     if(fiveTime < 10){
       timer.style.animation = "blinkingBackground 2s infinite";
     }
+    //when the time ends 
     if(fiveTime < 0){
       timer.innerHTML = `0:00`;
       gameSection[0].style.opacity = 0.5; 
@@ -58,6 +59,7 @@ function tenMinsButton(){
     if(tenTime < 10){
       timer.style.animation = "blinkingBackground 2s infinite";
     }
+    //when the time ends 
     if(tenTime < 0){
       timer.innerHTML = `0:00`;
       gameSection[0].style.opacity = 0.5; 
@@ -90,6 +92,7 @@ function fifteenMinsButton(){
     if(fifteenTime < 10){
       timer.style.animation = "blinkingBackground 2s infinite";
     }
+    //when the time ends 
     if(fifteenTime < 0){
       timer.innerHTML = `0:00`;
       gameSection[0].style.opacity = 0.5; 
@@ -107,6 +110,7 @@ function fifteenMinsButton(){
   setInterval(fifteenMinsCountdown,1000);
   fifteenMinsCountdown();
 }
+
 //Read Text File
 var http = {
   loadTextFile: function(path, callback) {   
@@ -292,4 +296,3 @@ http.loadTextFile('6 character of words.txt', function(response){
     showChallenge();
   }
 });
-

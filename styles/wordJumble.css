@@ -704,6 +704,51 @@
           justify-content: center;
 }
 
+.game_section .exitBtn_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
+  width: 200px;
+  height: 80px;
+}
+
+.game_section .exitBtn_container #exitBtn {
+  font-size: 30px;
+  font-weight: 600;
+  width: 180px;
+  height: 70px;
+  border-radius: 50px;
+}
+
+.game_section .exitBtn_container #exitBtn:hover {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #00d1b2;
+}
+
+.game_section .exitBtn_container #exitBtn:active {
+  background: yellow;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.game_section .exitBtn_container #exitBtn:active:after {
+  opacity: 1;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
 .timeIsUp_container {
   position: absolute;
   display: none;
